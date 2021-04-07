@@ -1,7 +1,7 @@
 1) Selon la table ASCII, un caractère peut théoriquement être codé sur combien de
-    bit ? et en pratique, sur combien de bit ?
+bit ? et en pratique, sur combien de bit ?
 
-	En théorie un character est codé sur 8 bit parce que Ascii utilise une table binaire mais en pratique cela reviens a 7 bits pour des soucis d
+	En théorie un character est codé sur 8 bit parce que Ascii utilise une table binaire mais en pratique cela reviens a 7 bits parce que le premier bit est toujours a 0 (la table ascii ne contient que 128 characteres => dernier charactere => 01111111)
 
 2) Le message “Coucou” prendrait combien d’espace en mémoire ?
 
