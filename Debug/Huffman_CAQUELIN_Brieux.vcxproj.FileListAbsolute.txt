@@ -1,3 +1,5 @@
 C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_CAQUELIN_Brieux\Debug\Huffman_CAQUELIN_Brieux.exe
 C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_CAQUELIN_Brieux\Debug\Huffman_CAQUELIN_Brieux.pdb
 D:\ETPA\Algo\Huffman_Barbato_Caquelin\Debug\Huffman_CAQUELIN_Brieux.exe
+C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Debug\Huffman_CAQUELIN_Brieux.exe
+C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Debug\Huffman_CAQUELIN_Brieux.pdb
