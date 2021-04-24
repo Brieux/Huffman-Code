@@ -3,10 +3,13 @@
 #include <map>
 #include <vector>
 #include <algorithm> 
+#include "Node.cpp"
 
 using namespace std;
 
-
+struct tree {
+    vector<Node> leaf;
+}   arbres;
 
 int main()
 {
@@ -29,8 +32,13 @@ int main()
     cout << "Non tri" << endl;
 
     for (const auto& p : cTab) {
+
         cout << "Char [" << p.first << "] = " << p.second << " iterations." << endl;
         nbrIte.push_back(p.second);
+        Node l(p.first, p.second);
+
+
+        arbres.leaf.push_back(l); //ajout de la feuille dans l'arbres  
     }
 
     sort(nbrIte.begin(), nbrIte.end(), greater<int>());

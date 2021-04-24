@@ -11,7 +11,9 @@ private:
 
 public:
 	Node();
+	Node(char v, int f);
 	Node(char v, int f, Node* l, Node* r);
+
 
 	char getValue();
 	void setValue(char v);

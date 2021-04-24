@@ -1,5 +1,23 @@
-﻿  Node.cpp
+﻿  Huffman_CAQUELIN_Brieux.cpp
 C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Node.cpp(6,8): warning C4101: 'left' : variable locale non référencée
 C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Node.cpp(7,8): warning C4101: 'right' : variable locale non référencée
-C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Node.cpp(59,23): error C2664: 'void Node::setChild(char,Node &)' : impossible de convertir l'argument 2 de 'Node *' en 'Node &'
-C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Node.cpp(48,12): message : voir la déclaration de 'Node::setChild'
+C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Node.cpp(14,8): warning C4101: 'left' : variable locale non référencée
+C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Node.cpp(15,8): warning C4101: 'right' : variable locale non référencée
+  Node.cpp
+C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Node.cpp(6,8): warning C4101: 'left' : variable locale non référencée
+C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Node.cpp(7,8): warning C4101: 'right' : variable locale non référencée
+C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Node.cpp(14,8): warning C4101: 'left' : variable locale non référencée
+C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Node.cpp(15,8): warning C4101: 'right' : variable locale non référencée
+  Génération de code en cours...
+C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Node.cpp(54): warning C4715: 'Node::getChild' : les chemins de contrôle ne retournent pas tous une valeur
+C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Node.cpp(54): warning C4715: 'Node::getChild' : les chemins de contrôle ne retournent pas tous une valeur
+Node.obj : error LNK2005: "public: __thiscall Node::Node(char,int)" (??0Node@@QAE@DH@Z) déjà défini(e) dans Huffman_CAQUELIN_Brieux.obj
+Node.obj : error LNK2005: "public: __thiscall Node::Node(char,int,class Node *,class Node *)" (??0Node@@QAE@DHPAV0@0@Z) déjà défini(e) dans Huffman_CAQUELIN_Brieux.obj
+Node.obj : error LNK2005: "public: __thiscall Node::Node(void)" (??0Node@@QAE@XZ) déjà défini(e) dans Huffman_CAQUELIN_Brieux.obj
+Node.obj : error LNK2005: "public: class Node __thiscall Node::getChild(char)" (?getChild@Node@@QAE?AV1@D@Z) déjà défini(e) dans Huffman_CAQUELIN_Brieux.obj
+Node.obj : error LNK2005: "public: int __thiscall Node::getFrequency(void)" (?getFrequency@Node@@QAEHXZ) déjà défini(e) dans Huffman_CAQUELIN_Brieux.obj
+Node.obj : error LNK2005: "public: char __thiscall Node::getValue(void)" (?getValue@Node@@QAEDXZ) déjà défini(e) dans Huffman_CAQUELIN_Brieux.obj
+Node.obj : error LNK2005: "public: void __thiscall Node::setChild(char,class Node &)" (?setChild@Node@@QAEXDAAV1@@Z) déjà défini(e) dans Huffman_CAQUELIN_Brieux.obj
+Node.obj : error LNK2005: "public: void __thiscall Node::setFrenquency(int)" (?setFrenquency@Node@@QAEXH@Z) déjà défini(e) dans Huffman_CAQUELIN_Brieux.obj
+Node.obj : error LNK2005: "public: void __thiscall Node::setValue(char)" (?setValue@Node@@QAEXD@Z) déjà défini(e) dans Huffman_CAQUELIN_Brieux.obj
+C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Debug\Huffman_CAQUELIN_Brieux.exe : fatal error LNK1169: un ou plusieurs symboles définis à différentes reprises ont été rencontrés

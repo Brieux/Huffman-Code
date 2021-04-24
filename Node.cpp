@@ -7,6 +7,14 @@ Node::Node() {
 	Node* right;
 }
 
+
+Node::Node(char v, int f) {
+	value = v;
+	frequency = f;
+	Node* left;
+	Node* right;
+}
+
 Node::Node(char v, int f, Node* l, Node* r) {
 	value = v;
 	frequency = f;
