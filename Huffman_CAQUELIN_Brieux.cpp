@@ -7,6 +7,7 @@
 using namespace std;
 
 
+
 int main()
 {
     fstream file;
@@ -38,6 +39,7 @@ int main()
 
     for (auto x : nbrIte)
         cout << x << " ";
+
 
 
     return 0;

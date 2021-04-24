@@ -1,2 +1,5 @@
-﻿  Huffman_CAQUELIN_Brieux.cpp
-  Huffman_CAQUELIN_Brieux.vcxproj -> C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Debug\Huffman_CAQUELIN_Brieux.exe
+﻿  Node.cpp
+C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Node.cpp(6,8): warning C4101: 'left' : variable locale non référencée
+C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Node.cpp(7,8): warning C4101: 'right' : variable locale non référencée
+C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Node.cpp(59,23): error C2664: 'void Node::setChild(char,Node &)' : impossible de convertir l'argument 2 de 'Node *' en 'Node &'
+C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Node.cpp(48,12): message : voir la déclaration de 'Node::setChild'
