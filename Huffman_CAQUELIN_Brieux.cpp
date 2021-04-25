@@ -10,6 +10,11 @@ struct tree {
     vector<Node> leaf;
 } tree;
 
+struct translate {
+    char character;
+    int binary;
+};
+
 void sortWithFrequency(vector<Node> &v) {
     for (int j = 0; j < v.size() - 1; j++) {
         for (int i = 0; i < v.size() - j - 1; i++) {
@@ -48,16 +53,10 @@ int main()
         Node l(p.first, p.second);
         tree.leaf.push_back(l); //ajout de la feuille dans l'arbres    
     }
-    /*
-    for (int i = 0; i < tree.leaf.size(); i++) {
-        cout << tree.leaf[i].getValue() << " & " << tree.leaf[i].getFrequency() << endl ;
-    }
-    cout << endl << endl;*/
+
     sortWithFrequency(tree.leaf);
 
-    /*for (int i = 0; i < tree.leaf.size(); i++) {
-        cout << tree.leaf[i].getValue() << " & " << tree.leaf[i].getFrequency() << endl;
-    }*/
+
     for (int j = 0; j < tree.leaf.size() - 1; j++) {
         for (int i = tree.leaf.size() - 1; i > 1; i = i - 2) {
             Node l1(tree.leaf[i].getValue(), tree.leaf[i].getFrequency());
@@ -70,12 +69,11 @@ int main()
             tree.leaf.push_back(branch);
             sortWithFrequency(tree.leaf);
         }
-
+        cout << "Tour " << j << "_______________________" << endl;
         for (int i = 0; i < tree.leaf.size(); i++) {
             cout << tree.leaf[i].getValue() << " & " << tree.leaf[i].getFrequency() << endl;
         }
     }
-    /*
-    cout << tree.leaf[1].getChild('r')->getValue() << endl;*/
+
     return 0;
 }
