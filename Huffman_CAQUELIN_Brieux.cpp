@@ -57,7 +57,7 @@ int main()
     sortWithFrequency(tree.leaf);
 
 
-    for (int j = 0; j < tree.leaf.size() - 1; j++) {
+    for (int j = 0; j < tree.leaf.size(); j++) {
         for (int i = tree.leaf.size() - 1; i > 1; i = i - 2) {
             Node l1(tree.leaf[i].getValue(), tree.leaf[i].getFrequency());
             tree.leaf.pop_back();
