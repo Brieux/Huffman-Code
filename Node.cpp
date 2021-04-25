@@ -15,8 +15,8 @@ Node::Node(char v, int f) {
 	Node* right;
 }
 
-Node::Node(char v, int f, Node* l, Node* r) {
-	value = v;
+Node::Node(int f, Node* l, Node* r) {
+	value = ' ';
 	frequency = f;
 	left = l;
 	right = r;
@@ -38,13 +38,13 @@ void Node::setFrenquency(int f) {
 	frequency = f;
 }
 
-Node Node::getChild(char child) {
+Node* Node::getChild(char child) {
 	switch (child) {
 	case 'l':
-		return *left;
+		return left;
 		break;
 	case 'r':
-		return *right;
+		return right;
 		break;
 	default:
 		std::cout << "Erreur de saisie de l enfant, rentrez un nouvel enfant\n";

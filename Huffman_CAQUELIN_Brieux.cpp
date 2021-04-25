@@ -59,5 +59,20 @@ int main()
         cout << tree.leaf[i].getValue() << " & " << tree.leaf[i].getFrequency() << endl;
     }
 
+    for (int i = tree.leaf.size() - 1; i > 1; i = i - 2) {
+        Node l1(tree.leaf[i].getValue(), tree.leaf[i].getFrequency());
+        tree.leaf.pop_back();
+        Node l2(tree.leaf[i - 1].getValue(), tree.leaf[i - 1].getFrequency());
+        tree.leaf.pop_back();
+        Node branch('§',l1.getFrequency() + l2.getFrequency());
+        branch.setChild('l', l2);
+        branch.setChild('r', l1);
+        tree.leaf.push_back(branch);
+    }
+
+    for (int i = 0; i < tree.leaf.size(); i++) {
+        cout << tree.leaf[i].getValue() << " & " << tree.leaf[i].getFrequency() << endl;
+    }
+    cout << tree.leaf[2].getChild('l')->getValue() << endl;
     return 0;
 }

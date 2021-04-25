@@ -12,7 +12,7 @@ private:
 public:
 	Node();
 	Node(char v, int f);
-	Node(char v, int f, Node* l, Node* r);
+	Node(int f, Node* l, Node* r);
 
 
 	char getValue();
@@ -21,7 +21,7 @@ public:
 	int getFrequency();
 	void setFrenquency(int f);
 
-	Node getChild(char child);
+	Node* getChild(char child);
 	void setChild(char child, Node &ref);
 };
 
