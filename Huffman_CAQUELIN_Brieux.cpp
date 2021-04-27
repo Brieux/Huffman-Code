@@ -51,14 +51,14 @@ int main()
         leaf.push_back(new Node(p.first, p.second)); //ajout de la feuille dans l'arbres
 
     }
-    cout << "TRI" << endl;
+    cout <<endl<< "TRI" << endl<< endl;
     sortWithFrequency(leaf);
     for (int i = 0; i <leaf.size(); i++) {
         cout << leaf[i]->getValue() << " & " << leaf[i]->getFrequency() << endl;
     }
-    /*
-    for (int j = 0; j < leaf.size(); j++) {
-        for (int i = leaf.size() - 1; i > 1; i = i - 2) {
+    cout <<endl<< "Arbre" << endl << endl;
+    
+    for (int i = leaf.size() - 2; i > 1; i = i - 2) {
             Node l1(leaf[i]->getValue(), leaf[i]->getFrequency());
             leaf.pop_back();
             Node l2(leaf[i - 1]->getValue(), leaf[i - 1]->getFrequency());
@@ -68,14 +68,9 @@ int main()
             branch.setChild('r', l1);
             leaf.push_back(&branch);
             sortWithFrequency(leaf);
-        }
-        cout << "Tour " << j << "_______________________" << endl;
-        for (int i = 0; i < leaf.size(); i++) {
-            cout << leaf[i]->getValue() << " & " << leaf[i]->getFrequency() << endl;
-        }
     }
-
-    cout << leaf[1]->getChild('r')->getValue();*/
-
+    for (int i = 0; i < leaf.size(); i++) {
+        cout << leaf[i]->getValue() << " & " << leaf[i]->getFrequency() << endl;
+    }
     return 0;
 }
