@@ -35,7 +35,6 @@ int main()
     map<char, int> cTab;
     char c;
     vector<Node *> leaf;
-
     while (file.get(c)) {
         map<char, int>::iterator it = cTab.find(c);
         if (it == cTab.end()) {
@@ -45,20 +44,19 @@ int main()
             it->second += 1;
         }       
     }
-
     for (const auto& p : cTab) {
         cout << p.first << " " << p.second << endl;
         leaf.push_back(new Node(p.first, p.second)); //ajout de la feuille dans l'arbres
 
     }
-    cout <<endl<< "TRI" << endl<< endl;
+    cout <<endl<< "TRI" << endl;
     sortWithFrequency(leaf);
     for (int i = 0; i <leaf.size(); i++) {
         cout << leaf[i]->getValue() << " & " << leaf[i]->getFrequency() << endl;
     }
-    cout <<endl<< "Arbre" << endl << endl;
-    
-    for (int i = leaf.size() - 2; i > 1; i = i - 2) {
+    cout << endl << "Arbre" << endl;
+    //for (int j = 0; j < leaf.size(); j++) {
+        for (int i = leaf.size() - 1; i > 1; i = i - 2) {
             Node l1(leaf[i]->getValue(), leaf[i]->getFrequency());
             leaf.pop_back();
             Node l2(leaf[i - 1]->getValue(), leaf[i - 1]->getFrequency());
@@ -68,9 +66,12 @@ int main()
             branch.setChild('r', l1);
             leaf.push_back(&branch);
             sortWithFrequency(leaf);
-    }
-    for (int i = 0; i < leaf.size(); i++) {
-        cout << leaf[i]->getValue() << " & " << leaf[i]->getFrequency() << endl;
-    }
+            //cout << leaf[i]->getValue() << " " << leaf[i]->getFrequency() << " " << leaf[i]->getChild('r') << " " << leaf[i]->getChild('l') << endl;
+        }
+        for (int i = 0; i < leaf.size(); i++) {
+            cout << leaf[i]->getValue() << " & " << leaf[i]->getFrequency() << endl;
+        }
+        //cout << endl << endl;
+    //}
     return 0;
 }
