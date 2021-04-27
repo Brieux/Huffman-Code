@@ -1,7 +1,7 @@
 ﻿  Huffman_CAQUELIN_Brieux.cpp
-C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Huffman_CAQUELIN_Brieux.cpp(11,23): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Huffman_CAQUELIN_Brieux.cpp(33,23): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Huffman_CAQUELIN_Brieux.cpp(34,27): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Huffman_CAQUELIN_Brieux.cpp(81,23): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Huffman_CAQUELIN_Brieux.cpp(103,23): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Huffman_CAQUELIN_Brieux.cpp(12,23): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Huffman_CAQUELIN_Brieux.cpp(54,23): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Huffman_CAQUELIN_Brieux.cpp(55,27): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Huffman_CAQUELIN_Brieux.cpp(102,23): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Huffman_CAQUELIN_Brieux.cpp(122,23): warning C4018: '<' : incompatibilité signed/unsigned
   Huffman_CAQUELIN_Brieux.vcxproj -> C:\Users\Utilisateur\Desktop\ \Huffman\Huffman_Barbato_Caquelin\Debug\Huffman_CAQUELIN_Brieux.exe

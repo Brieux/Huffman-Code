@@ -2,6 +2,7 @@
 #include <map>
 #include <vector>
 #include <algorithm> 
+#include <windows.h>
 #include "Node.h"
 
 using namespace std;
@@ -9,9 +10,30 @@ using namespace std;
 string encodeText(map<char, string> dict, string textToConvert) {
     string result;
     for (int i = 0; i < textToConvert.size(); i++) {
+        Sleep(3);
+        cout << dict[textToConvert[i]];
         result += dict[textToConvert[i]];
     }
     return result;
+}
+
+void decodeText(Node* tree, map<string, char>dict, int& index, string text) {
+    if (tree == nullptr){
+        return;
+    }
+
+    if (!tree->getChild('l') && !tree->getChild('r')) {
+        
+        cout << tree->getValue();
+        return;
+    }
+    index = index + 1;
+    if (text[index] == '0') {
+        decodeText(tree->getChild('l'), dict, index, text);
+    }
+    else {
+        decodeText(tree->getChild('r'), dict, index, text);
+    }
 }
 
 void tableEncode(Node* tree, string binary, map<char, string>& dict, int i) {
@@ -21,7 +43,6 @@ void tableEncode(Node* tree, string binary, map<char, string>& dict, int i) {
     }
 
     if (!tree->getChild('l') && !tree->getChild('r')) {
-        cout << i << endl;
         dict[tree->getValue()] = binary;
         return;
     }
@@ -88,8 +109,6 @@ int main()
         leaf.pop_back();
         Node* l2 = leaf[leaf.size()-1];
         leaf.pop_back();
-        cout << l1->getValue() << ' ' << l2->getValue() << endl;
-
         leaf.push_back(
             new Node(
                 l1->getFrequency() + l2->getFrequency(),
@@ -101,17 +120,24 @@ int main()
     }
 
     for (int i = 0; i < leaf.size(); i++) {
-        cout << leaf[i]->getValue() << " & " << leaf[i]->getFrequency() << endl;
+        cout << leaf[i]->getValue() << " & " << leaf[i]->getFrequency() << endl<< endl;
     }
     /*------------------------------------------------------------------------------------------------------------*/
-    map<char, string> dico;
-    tableEncode(leaf[0], "", dico,0);
-    for (pair<char, string> p : dico) {
-        cout << p.first << " " << p.second << endl;
+    map<char, string> dicoE;
+    map<string, char> dicoD;
+
+    tableEncode(leaf[0], "", dicoE,0);
+    for (pair<char, string> p : dicoE) {
+        dicoD[p.second] = p.first;
     }
     /*------------------------------------------------------------------------------------------------------------*/
     string convert;
-    convert = encodeText(dico, text);
-    cout << convert << endl;
+    convert = encodeText(dicoE, text);
+    cout << convert << endl<< endl;
+
+    int index =-1;
+    while (index < int(convert.size() - 1)) {
+        decodeText(leaf[0], dicoD, index, convert);
+    }
     return 0;
 }
