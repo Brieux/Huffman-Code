@@ -6,13 +6,27 @@
 
 using namespace std;
 
-void tableEncode(Node* tree, string binary, map<char, string>& dict) {
-    if (tree->getValue() != '|') {
+string encodeText(map<char, string> dict, string textToConvert) {
+    string result;
+    for (int i = 0; i < textToConvert.size(); i++) {
+        result += dict[textToConvert[i]];
+    }
+    return result;
+}
+
+void tableEncode(Node* tree, string binary, map<char, string>& dict, int i) {
+
+    if ((tree == nullptr)){
+        return;
+    }
+
+    if (!tree->getChild('l') && !tree->getChild('r')) {
+        cout << i << endl;
         dict[tree->getValue()] = binary;
         return;
     }
-    tableEncode(tree->getChild('l'), binary + "0", dict);
-    tableEncode(tree->getChild('r'), binary + "1", dict);
+    tableEncode(tree->getChild('r'), binary + "1", dict, i++);
+    tableEncode(tree->getChild('l'), binary + "0", dict,i++);
 }
 
 void sortWithFrequency(vector<Node *> v) {
@@ -21,11 +35,17 @@ void sortWithFrequency(vector<Node *> v) {
 
 
             if (v[i]->getFrequency() < v[i + 1]->getFrequency()) {
-                Node tampon(v[i]->getValue(), v[i]->getFrequency());
+                Node tampon(v[i]->getValue(), v[i]->getFrequency(), v[i]->getChild('l'), v[i]->getChild('r'));
+
                 v[i]->setValue(v[i + 1]->getValue());
                 v[i]->setFrenquency(v[i + 1]->getFrequency());
+                v[i]->setChild('l', v[i + 1]->getChild('l'));
+                v[i]->setChild('r', v[i + 1]->getChild('r'));
+
                 v[i + 1]->setValue(tampon.getValue());
                 v[i + 1]->setFrenquency(tampon.getFrequency());
+                v[i + 1]->setChild('l', tampon.getChild('l'));
+                v[i + 1]->setChild('r', tampon.getChild('r'));
 
             }
         }
@@ -36,11 +56,14 @@ int main()
 {
     fstream file;
     file.open("texteDeChanson.txt");
+    string text;
     map<char, int> cTab;
     char c;
     vector<Node *> leaf;
+    /*------------------------------------------------------------------------------------------------------------*/
     while (file.get(c)) {
         map<char, int>::iterator it = cTab.find(c);
+        text += c;
         if (it == cTab.end()) {
             cTab.insert({c,1});
         }
@@ -51,43 +74,44 @@ int main()
     for (const auto& p : cTab) {
         cout << p.first << " " << p.second << endl;
         leaf.push_back(new Node(p.first, p.second)); //ajout de la feuille dans l'arbres
-
     }
+    /*------------------------------------------------------------------------------------------------------------*/
     cout <<endl<< "TRI" << endl;
     sortWithFrequency(leaf);
     for (int i = 0; i <leaf.size(); i++) {
         cout << leaf[i]->getValue() << " & " << leaf[i]->getFrequency() << endl;
     }
+    /*------------------------------------------------------------------------------------------------------------*/
     cout << endl << "Arbre" << endl;
-    //for (int j = 0; j < leaf.size(); j++) {
     while (leaf.size() > 1) {
         Node* l1 = leaf[leaf.size()-1];
         leaf.pop_back();
         Node* l2 = leaf[leaf.size()-1];
         leaf.pop_back();
+        cout << l1->getValue() << ' ' << l2->getValue() << endl;
 
         leaf.push_back(
             new Node(
-            l1->getFrequency() + l2->getFrequency(),
-            l2,
-            l1
+                l1->getFrequency() + l2->getFrequency(),
+                l1,
+                l2
             )
         );
         sortWithFrequency(leaf);
     }
 
-        for (int i = 0; i < leaf.size(); i++) {
-            cout << leaf[i]->getValue() << " & " << leaf[i]->getFrequency() << endl;
-        }
-        map<char, string> dico;
-        tableEncode(leaf[0], "", dico);
-
-        
-        for (const auto& y : dico) {
-            cout << "salut je suis dans la boucle" << endl;
-            cout << y.first << " " << y.second << endl;
-        }
-        //cout << endl << endl;
-    //}
+    for (int i = 0; i < leaf.size(); i++) {
+        cout << leaf[i]->getValue() << " & " << leaf[i]->getFrequency() << endl;
+    }
+    /*------------------------------------------------------------------------------------------------------------*/
+    map<char, string> dico;
+    tableEncode(leaf[0], "", dico,0);
+    for (pair<char, string> p : dico) {
+        cout << p.first << " " << p.second << endl;
+    }
+    /*------------------------------------------------------------------------------------------------------------*/
+    string convert;
+    convert = encodeText(dico, text);
+    cout << convert << endl;
     return 0;
 }

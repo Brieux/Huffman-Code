@@ -13,7 +13,7 @@ public:
 	Node();
 	Node(char v, int f);
 	Node(int f, Node* l, Node* r);
-
+	Node(char v, int f, Node* l, Node* r);
 
 	char getValue();
 	void setValue(char v);
@@ -22,6 +22,6 @@ public:
 	void setFrenquency(int f);
 
 	Node* getChild(char child);
-	void setChild(char child, Node &ref);
+	void setChild(char child, Node *ref);
 };
 
