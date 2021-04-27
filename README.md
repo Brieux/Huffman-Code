@@ -1,3 +1,3 @@
-# Huffman_Barbato_Caquelin
+# Huffman Caquelin
 
 Modélisation et visualisation d'un encodage de Huffman en CPP
