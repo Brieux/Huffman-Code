@@ -6,10 +6,14 @@
 
 using namespace std;
 
-struct translate {
-    char character;
-    int binary;
-};
+void tableEncode(Node* tree, string binary, map<char, string>& dict) {
+    if (tree->getValue() != '|') {
+        dict[tree->getValue()] = binary;
+        return;
+    }
+    tableEncode(tree->getChild('l'), binary + "0", dict);
+    tableEncode(tree->getChild('r'), binary + "1", dict);
+}
 
 void sortWithFrequency(vector<Node *> v) {
     for (int j = 0; j < v.size() - 1; j++) {
@@ -56,20 +60,32 @@ int main()
     }
     cout << endl << "Arbre" << endl;
     //for (int j = 0; j < leaf.size(); j++) {
-        for (int i = leaf.size() - 1; i > 1; i = i - 2) {
-            Node l1(leaf[i]->getValue(), leaf[i]->getFrequency());
-            leaf.pop_back();
-            Node l2(leaf[i - 1]->getValue(), leaf[i - 1]->getFrequency());
-            leaf.pop_back();
-            Node branch('|', l1.getFrequency() + l2.getFrequency());
-            branch.setChild('l', l2);
-            branch.setChild('r', l1);
-            leaf.push_back(&branch);
-            sortWithFrequency(leaf);
-            //cout << leaf[i]->getValue() << " " << leaf[i]->getFrequency() << " " << leaf[i]->getChild('r') << " " << leaf[i]->getChild('l') << endl;
-        }
+    while (leaf.size() > 1) {
+        Node* l1 = leaf[leaf.size()-1];
+        leaf.pop_back();
+        Node* l2 = leaf[leaf.size()-1];
+        leaf.pop_back();
+
+        leaf.push_back(
+            new Node(
+            l1->getFrequency() + l2->getFrequency(),
+            l2,
+            l1
+            )
+        );
+        sortWithFrequency(leaf);
+    }
+
         for (int i = 0; i < leaf.size(); i++) {
             cout << leaf[i]->getValue() << " & " << leaf[i]->getFrequency() << endl;
+        }
+        map<char, string> dico;
+        tableEncode(leaf[0], "", dico);
+
+        
+        for (const auto& y : dico) {
+            cout << "salut je suis dans la boucle" << endl;
+            cout << y.first << " " << y.second << endl;
         }
         //cout << endl << endl;
     //}
